@@ -7,6 +7,6 @@
 flowchart TD
     A[Raw reads] -->B [SortMeRNA];
     B --> C[Trimmomatic];
-    D --> D[Kraken2];
+    C --> D[Kraken2];
     D --> E[FastQC];
 ```
