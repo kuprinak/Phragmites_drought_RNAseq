@@ -11,7 +11,7 @@ flowchart TB
     D --> E[FastQC];
     D --> F{Clean reads};
     A --> G[rnaSPAdes];
-    AA{Nanopore Raw reads} --> G[rnaSPAdes];
+    AA@{shape: procs, label: "Nanopore raw reads"} --> G[rnaSPAdes];
     G --> T{_De novo_ Transcriptome};
     
 ```
