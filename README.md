@@ -1,2 +1,2 @@
 # Phragmites_drought_RNAseq
-Transcriptomic analysis of Phragmites australis under drought stress
+## Gene expression analysis of Phragmites australis under drought stress
