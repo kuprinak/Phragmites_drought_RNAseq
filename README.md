@@ -5,7 +5,7 @@
 
 * SortMeRNA v4.3.4 - filtering out rRNA
 * Trimmomatic v0.33 - trimming of adapters, low-quality bases and removing of low-quality reads
-* Kraken2 - filtering out conatminating reads
+* Kraken2 - filtering out contaminating reads
 * FastQC v0.12.0 and MultiQC v1.14 - read quality report
 * rnaSPAdes v3.15.4  - transcriptome assembling
 * RNAquast v2.2.3 and BUSCO v5.4.4 - transcriptome quality assessment
