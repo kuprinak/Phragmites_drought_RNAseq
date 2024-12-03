@@ -7,11 +7,11 @@
 flowchart TB
     A@{shape: procs, label: "Illumina raw reads"} --> B[SortMeRNA];
     B --> C[Trimmomatic];
-    C --> D[Kraken2];
-    D --> E[FastQC];
-    D --> F{Clean reads};
+    C --> K[Kraken2];
+    K --> E[FastQC];
+    K --> F@{shape: procs, label: "Clean reads"};
     A --> G[rnaSPAdes];
     AA@{shape: procs, label: "Nanopore raw reads"} --> G[rnaSPAdes];
-    G --> T{_De novo_ Transcriptome};
-    
+    G --> K
+    K -->T{_De novo_ Transcriptome};
 ```
