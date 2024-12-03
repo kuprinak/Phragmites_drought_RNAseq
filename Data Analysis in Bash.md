@@ -2,7 +2,7 @@
 
 #SLURM job:
 
-´´´ {bash}
+```
 for SAMPLE in 3_Ro8x
 do
   sortmerna \
@@ -18,4 +18,4 @@ do
     -v
 done
 
-´´´
+```
