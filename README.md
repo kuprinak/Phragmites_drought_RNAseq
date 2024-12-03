@@ -16,7 +16,10 @@ flowchart TB
     K2 -->T@{shape: cyl, label: "_De novo_ Transcriptome"};
     T --> BU[BUSCO];
     T --> Q[rnaQUAST];
-    K --> S[Salmon];
+    T --> I[InterProScan];
+    T --> KEGG;  
+    T --> S[Salmon];
     F --> S[Salmon];
-
+    S --> q@{shape: procs, label: "quants"};
+    q --> R[DESEq2];
 ```
