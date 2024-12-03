@@ -5,8 +5,8 @@
 
 ```mermaid
 flowchart TD
-    A[Raw reads]-->B[SortMeRNA];
-    B[SortMeRNA]-->C[Trimmomatic];
-    D[Trimmomatic]-->D[Kraken2];
-    D[Kraken2]->E[FastQC];
+    A[Raw reads] -->B [SortMeRNA];
+    B --> C[Trimmomatic];
+    D --> D[Kraken2];
+    D --> E[FastQC];
 ```
