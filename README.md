@@ -4,7 +4,7 @@
 ### Used programs:
 
 * SortMeRNA v4.3.4 - filtering out rRNA
-* Trimmomatic v0.33 - trimming of reads for adapters, low-quality bases and low-quality reads
+* Trimmomatic v0.33 - trimming of adapters, low-quality bases and removing of low-quality reads
 * Kraken2 - filtering out conatminating reads
 * FastQC v0.12.0 - read quality report
 * rnaSPAdes v3.15.4  - transcriptome assembling
