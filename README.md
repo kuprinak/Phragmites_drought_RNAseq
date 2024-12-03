@@ -19,7 +19,7 @@
 flowchart TB
     A@{shape: procs, label: "Illumina raw reads"} --> B[SortMeRNA];
 AA@{shape: procs, label: "Nanopore raw reads"} --> G[rnaSPAdes];
-K2 -->T@{shape: cyl, label: "_De novo_ Transcriptome"};
+K2 -->T@{shape: cyl, label: "_De novo_ transcriptome assembly"};
     B --> C[Trimmomatic];
     C --> K[Kraken2];
     K --> F@{shape: procs, label: "Clean reads"};
@@ -34,7 +34,7 @@ K2 -->T@{shape: cyl, label: "_De novo_ Transcriptome"};
     T --> KAAS[KAAS];  
     T --> S[Salmon];
     F --> S[Salmon];
-    S --> q@{shape: procs, label: "read counts"};
+    S --> q@{shape: procs, label: "Read counts"};
     q --> R[DESeq2];
     R --> DEG@{shape: procs, label: "Differentially expressed genes"};
     DEG --> cl[clusterProfiler];
