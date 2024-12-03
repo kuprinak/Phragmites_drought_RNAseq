@@ -11,7 +11,7 @@
 * RNAquast v2.2.3 and BUSCO v5.4.4 - transcriptome quality assessment
 * KAAS v2.1 and InterProScan v5.61-93.0 - transcriptome annotation
 * Salmon v1.10.3 - read quantification
-* DESeq2 v1.44.0 - counts normalisation and differential gene expression analysis
+* DESeq2 v1.44.0 - read counts normalisation and differential gene expression analysis
 * clusterProfiler v4.12.6 - enrichment analysis for differentially expressed genes
 
 ### Workflow:
@@ -35,7 +35,7 @@ K2 -->T@{shape: cyl, label: "_De novo_ Transcriptome"};
     T --> KAAS[KAAS];  
     T --> S[Salmon];
     F --> S[Salmon];
-    S --> q@{shape: procs, label: "counts"};
+    S --> q@{shape: procs, label: "read counts"};
     q --> R[DESeq2];
     R --> DEG@{shape: procs, label: "Differentially expressed genes"};
     DEG --> cl[clusterProfiler];
