@@ -17,27 +17,27 @@
 ### Workflow:
 ```mermaid
 flowchart TB
-    A@{shape: procs, label: "Illumina raw reads"} --> B[SortMeRNA];
-AA@{shape: procs, label: "Nanopore raw reads"} --> G[rnaSPAdes];
+    A@{shape: procs, label: "Illumina raw reads"} --> B([SortMeRNA]);
+AA@{shape: procs, label: "Nanopore raw reads"} --> G([rnaSPAdes]);
 K2 -->T@{shape: cyl, label: "_De novo_ transcriptome assembly"};
-    B --> C[Trimmomatic];
-    C --> K[Kraken2];
+    B --> C([Trimmomatic]);
+    C --> K([Kraken2]);
     K --> F@{shape: procs, label: "Clean reads"};
-    A --> G[rnaSPAdes];
-    G --> K2[Kraken2];
-    T --> BU[BUSCO];
-    T --> Q[rnaQUAST];
-    T --> I[InterProScan];
+    A --> G([rnaSPAdes]);
+    G --> K2([Kraken2]);
+    T --> BU([BUSCO]);
+    T --> Q([rnaQUAST]);
+    T --> I([InterProScan]);
     I --> An@{shape: procs, label: "Annotation"};
     KAAS --> An@{shape: procs, label: "Annotation"};
     An --> R;
-    T --> KAAS[KAAS];  
-    T --> S[Salmon];
-    F --> S[Salmon];
+    T --> KAAS([KAAS]);  
+    T --> S([Salmon]);
+    F --> S([Salmon]);
     S --> q@{shape: procs, label: "Read counts"};
-    q --> R[DESeq2];
+    q --> R([DESeq2]);
     R --> DEG@{shape: procs, label: "Differentially expressed genes"};
-    DEG --> cl[clusterProfiler];
-    K --> E[FastQC];
-    E --> m[MultiQC];
+    DEG --> cl([clusterProfiler]);
+    K --> E([FastQC]);
+    E --> m([MultiQC]);
 ```
