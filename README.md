@@ -4,6 +4,11 @@
 ### Workflow:
 
 ```mermaid
+  info
+```
+
+
+```mermaid
 graph TD;
     Raw reads-->SortMeRNA;
     SortMeRNA-->Trimmomatic;
