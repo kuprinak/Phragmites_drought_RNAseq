@@ -17,7 +17,7 @@ flowchart TB
     T --> BU[BUSCO];
     T --> Q[rnaQUAST];
     T --> I[InterProScan];
-    T --> KEGG;  
+    T --> KEGG[KEGG];  
     T --> S[Salmon];
     F --> S[Salmon];
     S --> q@{shape: procs, label: "quants"};
