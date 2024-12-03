@@ -14,6 +14,9 @@ flowchart TB
     AA@{shape: procs, label: "Nanopore raw reads"} --> G[rnaSPAdes];
     G --> K2[Kraken2];
     K2 -->T@{shape: cyl, label: "_De novo_ Transcriptome"};
-K --> S[Salmon]
-T --> S[Salmon]
+    T --> BU[BUSCO];
+    T --> Q[rnaQUAST];
+    K --> S[Salmon];
+    F --> S[Salmon];
+
 ```
