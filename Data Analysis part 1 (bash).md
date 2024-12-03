@@ -1,7 +1,7 @@
 ## 1. Remove rRNA in SortMeRNA v4.3.4 
 
 ### Indexing of the reference database (rRNA_databases_v4.3.4)
-```
+```{bash}
 sortmerna \
   --reads /home/kuprinak/RNAseq/fastq/2_Hu4x_1.fastq.gz \
   --reads /home/kuprinak/RNAseq/fastq/2_Hu4x_2.fastq.gz \
@@ -15,7 +15,7 @@ sortmerna \
 #after this run, all files from the folder sortmerna/run/kvbd have to be removed
 ```
 ### Remove rRNA for all samples 
-```
+```{bash}
 for SAMPLE in  2_Hu4x 2_Hu8x 2_Ru4x 2_Ru8x 2_Ro4x 2_Ro8x \
                c_Hu4x c_Hu8x c_Ru4x c_Ru8x c_Ro4x c_Ro8x \
                3_Hu4x 3_Hu8x 3_Ru4x 3_Ru8x 3_Ro4x 3_Ro8x 
@@ -35,7 +35,7 @@ done
 
 ```
 ## 2. Adapters and quality trimming in Trimmomatic v0.33 
-```
+```{bash}
 for SAMPLE in  2_Hu4x 2_Hu8x 2_Ru4x 2_Ru8x 2_Ro4x 2_Ro8x \
               c_Hu4x c_Hu8x c_Ru4x c_Ru8x c_Ro4x c_Ro8x \
               3_Hu4x 3_Hu8x 3_Ru4x 3_Ru8x 3_Ro4x 3_Ro8x 
@@ -51,20 +51,20 @@ done
 ```
 
 ## 3. Contamination removal in Kraken2
-```
+```{bash}
 Wait for Stepan
 ```
 
 ## 4. Read quality assessment in FastQC v0.12.0  and MultiQC v1.14 
 
-```
+```{bash}
 fastqc -t 96 /home/kuprinak/RNAseq/fastq-kraken/*_clean.fq -o /home/kuprinak/RNAseq/FastQC/sortmerna_trimmomatic_clean/
 
 multiqc /home/kuprinak/RNAseq/FastQC/sortmerna_trimmomatic_clean --interactive 
 ```
 
 ## 5. Transcriptome _De novo_ assembly using Illumina short reads (eight control samples) and Nanopore long reads (one sample) in rnaSPAdes-3.15.4
-```
+```{bash}
 spades.py --pe1-1 /home/kuprinak/RNAseq/fastq/c_Hu4x_1.fastq.gz \
           --pe1-2 /home/kuprinak/RNAseq/fastq/c_Hu4x_2.fastq.gz \
 	        --pe2-1 /home/kuprinak/RNAseq/fastq/c_Hu8x_1.fastq.gz \
@@ -84,13 +84,13 @@ spades.py --pe1-1 /home/kuprinak/RNAseq/fastq/c_Hu4x_1.fastq.gz \
 ```
 
 ## 6. Assembly quality in rnaQUAST v2.2.3 
-```
+```{bash}
 python rnaQUAST.py -t 96 \
 -o /home/kuprinak/RNAseq/transcriptome/SPAdes/rnaQUAST/ \
 --transcripts /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fasta 
 ```
 ## 7. Assembly quality in BUSCO v5.4.4 
-```
+```{bash}
 busco -i /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fasta  \
 		-o BUSCO \
 		-m tran \
@@ -106,7 +106,7 @@ busco -i /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fa
 
 
 ## 8. Annotation of transcriptome in InterProScan
-```
+```{bash}
 # Fasta file of the transcriptome was chunked into 10 pieces:
 pyfasta split -n 10 /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fasta
 
@@ -119,7 +119,7 @@ cat *.tsv > transcripts_annotation.tsv
 ```
 
 ## 9. Read quantification in Salmon 
-```
+```{bash}
 # Building an index for the transcriptome:
 salmon index -t /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fasta -i transcripts_index
 
