@@ -6,7 +6,7 @@
 * SortMeRNA v4.3.4 - filtering out rRNA
 * Trimmomatic v0.33 - trimming of adapters, low-quality bases and removing of low-quality reads
 * Kraken2 - filtering out conatminating reads
-* FastQC v0.12.0 - read quality report
+* FastQC v0.12.0 and MultiQC v1.14 - read quality report
 * rnaSPAdes v3.15.4  - transcriptome assembling
 * RNAquast v2.2.3 and BUSCO v5.4.4 - transcriptome quality assessment
 * KAAS v2.1 and InterProScan v5.61-93.0 - transcriptome annotation
@@ -22,7 +22,6 @@ AA@{shape: procs, label: "Nanopore raw reads"} --> G[rnaSPAdes];
 K2 -->T@{shape: cyl, label: "_De novo_ Transcriptome"};
     B --> C[Trimmomatic];
     C --> K[Kraken2];
-    K --> E[FastQC];
     K --> F@{shape: procs, label: "Clean reads"};
     A --> G[rnaSPAdes];
     G --> K2[Kraken2];
@@ -39,4 +38,6 @@ K2 -->T@{shape: cyl, label: "_De novo_ Transcriptome"};
     q --> R[DESeq2];
     R --> DEG@{shape: procs, label: "Differentially expressed genes"};
     DEG --> cl[clusterProfiler];
+    K --> E[FastQC];
+    E --> m[MultiQC];
 ```
