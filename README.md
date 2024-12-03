@@ -11,8 +11,8 @@
 * RNAquast v2.2.3 and BUSCO v5.4.4 - transcriptome quality assessment
 * KAAS v2.1 and InterProScan v5.61-93.0 - transcriptome annotation
 * Salmon v1.10.3 - read quantification
-* DESeq2 v1.44.0 - read counts normalisation and differential gene expression analysis
-* clusterProfiler v4.12.6 - enrichment analysis for differentially expressed genes
+* DESeq2 v1.44.0 R package - read counts normalisation and differential gene expression analysis
+* clusterProfiler v4.12.6 R package - enrichment analysis for differentially expressed genes
 
 ### Workflow:
 ```mermaid
