@@ -4,14 +4,9 @@
 ### Workflow:
 
 ```mermaid
-  info
-```
-
-
-```mermaid
 graph TD;
-    Raw reads-->SortMeRNA;
-    SortMeRNA-->Trimmomatic;
-    Trimmomatic-->Kraken2;
-    Kraken2->FastQC;
+    A[Raw reads]-->B[SortMeRNA];
+    B[SortMeRNA]-->C[Trimmomatic];
+    D[Trimmomatic]-->D[Kraken2];
+    D[Kraken2]->E[FastQC];
 ```
