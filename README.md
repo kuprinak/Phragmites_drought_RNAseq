@@ -5,7 +5,7 @@
 
 ```mermaid
 flowchart TB
-    A{shape: procs, label: "Illumina raw reads"} --> B[SortMeRNA];
+    A@{shape: procs, label: "Illumina raw reads"} --> B[SortMeRNA];
     B --> C[Trimmomatic];
     C --> D[Kraken2];
     D --> E[FastQC];
