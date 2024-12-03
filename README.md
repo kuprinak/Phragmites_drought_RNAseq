@@ -4,7 +4,7 @@
 ### Workflow:
 
 ```mermaid
-graph TD;
+flowchart TD
     A[Raw reads]-->B[SortMeRNA];
     B[SortMeRNA]-->C[Trimmomatic];
     D[Trimmomatic]-->D[Kraken2];
