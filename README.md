@@ -5,7 +5,7 @@
 
 ```mermaid
 flowchart TD
-    A{Illumina Raw reads} ->B[SortMeRNA];
+    A{Illumina Raw reads} -> B[SortMeRNA];
     B -> C[Trimmomatic];
     C -> D[Kraken2];
     D -> E[FastQC];
