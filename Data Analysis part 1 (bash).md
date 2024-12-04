@@ -82,6 +82,8 @@ spades.py --pe1-1 /home/kuprinak/RNAseq/fastq/c_Hu4x_1.fastq.gz \
           --rna -t 2 --cov-cutoff off
 #no more than 2 threads!      
 ```
+pyfasta info for transcriptome:
+328.609M bp in 240142 sequences
 
 ## 6. Assembly quality in rnaQUAST v2.2.3 
 ```{bash}
@@ -89,6 +91,22 @@ python rnaQUAST.py -t 96 \
 -o /home/kuprinak/RNAseq/transcriptome/SPAdes/rnaQUAST/ \
 --transcripts /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fasta 
 ```
+Output: 
+
+== BASIC TRANSCRIPTS METRICS (calculated without reference genome and gene database) ==
+
+Transcripts                                            240142                        
+
+Transcripts > 500 bp                                   146221                        
+Transcripts > 1000 bp                                  112887                        
+
+Average length of assembled transcripts                1368.395                      
+Longest transcript                                     33288                         
+Total length                                           328609165                     
+
+Transcript N50                                         2386                          
+
+
 ## 7. Assembly quality in BUSCO v5.4.4 
 ```{bash}
 busco -i /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fasta  \
@@ -100,8 +118,23 @@ busco -i /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fa
 		--long \
 		--update-data
 ```
-### BUSCO Output:
+#### BUSCO Output:
 
+	--------------------------------------------------
+	|Results from dataset poales_odb10                |
+	--------------------------------------------------
+	|C:91.9%[S:14.0%,D:77.9%],F:1.3%,M:6.8%,n:4896    |
+	|4497	Complete BUSCOs (C)                       |
+	|684	Complete and single-copy BUSCOs (S)       |
+	|3813	Complete and duplicated BUSCOs (D)        |
+	|62	Fragmented BUSCOs (F)                     |
+	|337	Missing BUSCOs (M)                        |
+	|4896	Total BUSCO groups searched               |
+
+Dependencies and versions:
+	hmmsearch: 3.1
+	metaeuk: 6.a5d39d9
+	busco: 5.4.4
 
 
 
