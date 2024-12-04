@@ -138,4 +138,4 @@ done
 
 ```
 
-> **_NOTE:_** Result read counts were analysed in R. See "Data Analysis part 2 (R)"
+> **_NOTE:_** Resulted read counts were analysed in R. See "Data Analysis part 2 (R)"
