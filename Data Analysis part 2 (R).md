@@ -37,7 +37,7 @@ meta <- data.frame(sampletype, row.names = colnames(txi$counts))
 all(colnames(txi$counts) %in% rownames(meta)) # Check that sample names match in both files
 ```
 
-#### Distribution of variance for row reads
+#### Distribution of variance
 
 ```{r}
 data_v <- txi$counts %>% 
@@ -55,7 +55,7 @@ ggplot(df) +
   geom_abline(intercept = 0, slope = 1, color="red")
 ```
 
-# DEG analysis
+# DEG analysis (treatments vs control)
 ```{r}
 #Create DESeq2Dataset object, run count normalizasion and DE analysis:
 dds <- DESeqDataSetFromTximport(txi, colData = meta, design = ~ sampletype)
