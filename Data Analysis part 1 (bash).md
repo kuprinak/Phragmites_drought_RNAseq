@@ -120,21 +120,16 @@ busco -i /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fa
 ```
 #### BUSCO Output:
 
-	--------------------------------------------------
-	|Results from dataset poales_odb10                |
-	--------------------------------------------------
-	|C:91.9%[S:14.0%,D:77.9%],F:1.3%,M:6.8%,n:4896    |
-	|4497	Complete BUSCOs (C)                       |
-	|684	Complete and single-copy BUSCOs (S)       |
-	|3813	Complete and duplicated BUSCOs (D)        |
-	|62	Fragmented BUSCOs (F)                     |
-	|337	Missing BUSCOs (M)                        |
-	|4896	Total BUSCO groups searched               |
+| n     |                                     |  %    |
+| :---: | ----------------------------------- | :---: |
+| 4497	|Complete BUSCOs                      | 91.9 |
+| 684	|Complete and single-copy BUSCOs      | 14.0 |
+| 3813	|Complete and duplicated BUSCOs       | 77.9 |
+| 62	|Fragmented BUSCOs                    | 1.3  |
+| 337	|Missing BUSCOs                       | 6.8  |
+| 4896	|Total BUSCO groups searched          | 100.0 |
 
-Dependencies and versions:
-	hmmsearch: 3.1
-	metaeuk: 6.a5d39d9
-	busco: 5.4.4
+Dependency: hmmsearch v3.1
 
 
 
