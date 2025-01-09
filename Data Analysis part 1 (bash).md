@@ -70,7 +70,7 @@ echo "Processing sample: $SAMPLE"
 FORWARD_FASTQ="$FASTQ_DIR/${SAMPLE}_forward_paired.fq.gz"
 REVERSE_FASTQ="$FASTQ_DIR/${SAMPLE}_reverse_paired.fq.gz"
 
-# Step 1: Extract read IDs for filtering:
+# Step 1: Extract reads for filtering:
 if [[ -f "$FORWARD_FASTQ" && -f "$REVERSE_FASTQ" ]]; then
     echo "Filtering paired-end reads for $SAMPLE..."
     python3 /home/saenkos/kraken2/KrakenTools/extract_kraken_reads.py \
