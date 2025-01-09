@@ -51,9 +51,56 @@ done
 ```
 
 ## 3. Contamination removal in Kraken2
+
 ```{bash}
-Wait for Stepan
+FASTQ_DIR="/home/kuprinak/RNAseq/fastq-trimmomatic/PHRED30_LEN100/Trimmed_SortMeRNA"
+KRAKEN_DIR="."
+OUTPUT_DIR="krakentools_filter"
+
+# Create output directory if it doesn't exist
+mkdir -p "$OUTPUT_DIR"
+
+# Get the list of Kraken2 output files and pick the one corresponding to the current task ID
+KRAKEN_FILES=($KRAKEN_DIR/*_kraken2_output.txt)
+KRAKEN_OUTPUT=${KRAKEN_FILES[$SLURM_ARRAY_TASK_ID]}
+
+# Extract the base name of the sample
+SAMPLE=$(basename "$KRAKEN_OUTPUT" _kraken2_output.txt)
+echo "Processing sample: $SAMPLE"
+FORWARD_FASTQ="$FASTQ_DIR/${SAMPLE}_forward_paired.fq.gz"
+REVERSE_FASTQ="$FASTQ_DIR/${SAMPLE}_reverse_paired.fq.gz"
+
+# Step 1: Extract read IDs for filtering:
+if [[ -f "$FORWARD_FASTQ" && -f "$REVERSE_FASTQ" ]]; then
+    echo "Filtering paired-end reads for $SAMPLE..."
+    python3 /home/saenkos/kraken2/KrakenTools/extract_kraken_reads.py \
+        -k $KRAKEN_OUTPUT \
+        -s1 $FORWARD_FASTQ \
+        -s2 $REVERSE_FASTQ \
+        --taxid 33154 2 1783272 10239 2157  \
+        --exclude \
+        --include-children \
+        --fastq-output \
+        --report /home/saenkos/kraken2/kraken2_results_PLUSPFP/${SAMPLE}_kraken2_report.txt \
+        -o $OUTPUT_DIR/${SAMPLE}_forward_clean.fq \
+        -o2 $OUTPUT_DIR/${SAMPLE}_reverse_clean.fq
+
+    echo "Filtered reads written to: $OUTPUT_DIR/${SAMPLE}_forward_clean.fq.gz and $OUTPUT_DIR/${SAMPLE}_reverse_clean.fq.gz"
+else
+    echo "FASTQ files for $SAMPLE not found. Skipping..."
+fi
+
 ```
+
+### Taxid which were filtered out:
+
+* 33154 - Opisthokonta
+* 2 - Bacteria
+* 2157 - Archaea
+* 10239 - Viruses
+* 1783272 - Terrabacteria group 	
+
+
 
 ## 4. Read quality assessment in FastQC v0.12.0  and MultiQC v1.14 
 
@@ -82,6 +129,9 @@ spades.py --pe1-1 /home/kuprinak/RNAseq/fastq/c_Hu4x_1.fastq.gz \
           --rna -t 2 --cov-cutoff off
 #no more than 2 threads!      
 ```
+
+
+
 pyfasta info for transcriptome:
 328.609M bp in 240142 sequences
 
