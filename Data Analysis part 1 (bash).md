@@ -1,4 +1,6 @@
-openjdk version "23.0.1" 2024-10-15
+Analysis was performed on The "High Performance Computing" (HPC) cluster of the University Greifswald, which consists of 78 pure computing nodes @3.0 GHz with 64 GB RAM each and managed by SLURM system with the installed:
+
+conda 23.9.0, Python 3.9.16, and openjdk 23.0.1 (Java)
 
 ## 1. Remove rRNA in SortMeRNA v4.3.4 
 
