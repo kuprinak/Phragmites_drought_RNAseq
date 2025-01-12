@@ -207,7 +207,7 @@ do
 salmon quant -i /home/kuprinak/jobs/transcripts_clean_index/ -l ISF \
          -1 /home/kuprinak/RNAseq/fastq-kraken/${SAMPLE}_forward_clean.fq \
          -2 /home/kuprinak/RNAseq/fastq-kraken/${SAMPLE}_reverse_clean.fq \
-         -p 96 --gcBias --seqBias --posBias --validateMappings -o /home/kuprinak/RNAseq/salmon/clean/${SAMPLE}_quant
+         -p 96 --gcBias --seqBias --posBias --validateMappings -o /home/kuprinak/RNAseq/salmon/Hybrid/clean/${SAMPLE}_quant
 done 
 
 ```
