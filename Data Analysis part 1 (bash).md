@@ -195,7 +195,7 @@ cat *.tsv > transcripts_annotation.tsv
 ## 9. Read quantification in Salmon 
 ```{bash}
 # Building an index for the transcriptome:
-salmon index -t /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fasta -i transcripts_index
+salmon index -t /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fasta -i transcripts_clean_index
 
 # Quantification:
 for SAMPLE in  2_Hu4x 2_Hu8x 2_Ru4x 2_Ru8x 2_Ro4x 2_Ro8x \
@@ -207,7 +207,7 @@ do
 salmon quant -i /home/kuprinak/jobs/transcripts_clean_index/ -l ISF \
          -1 /home/kuprinak/RNAseq/fastq-kraken/${SAMPLE}_forward_clean.fq \
          -2 /home/kuprinak/RNAseq/fastq-kraken/${SAMPLE}_reverse_clean.fq \
-         -p 96 --gcBias --seqBias --posBias --validateMappings -o /home/kuprinak/RNAseq/salmon/${SAMPLE}_quant
+         -p 96 --gcBias --seqBias --posBias --validateMappings -o /home/kuprinak/RNAseq/salmon/clean/${SAMPLE}_quant
 done 
 
 ```
