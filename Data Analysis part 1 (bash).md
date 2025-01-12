@@ -133,7 +133,7 @@ spades.py --pe1-1 /home/kuprinak/RNAseq/fastq-kraken/c_Hu4x_forward_clean.fq \
 
 
 pyfasta info for transcriptome:
-328.609M bp in 240142 sequences
+261.204M basepairs in 199141 sequences
 
 ## 6. Assembly quality in rnaQUAST v2.2.3 
 ```{bash}
@@ -182,11 +182,11 @@ Dependency: hmmsearch v3.1
 ## 8. Annotation of transcriptome in InterProScan
 ```{bash}
 # Fasta file of the transcriptome was chunked into 10 pieces:
-pyfasta split -n 10 /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fasta
+pyfasta split -n 7 /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid_Ro4x_clean/chunked/Transcriptome_hybrid_clean.fasta
 
 # Each chunk was run in interproscan, maximum cpu - 40, otherwise java jump error, took one day for about 10000 sequences:
-/home/kuprinak/my_interproscan/interproscan-5.61-93.0/interproscan.sh -cpu 40 -t n -i /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts_1.fasta  \
-                 -b /home/kuprinak/RNAseq/transcriptome/SPAdes/Annotation/
+/home/kuprinak/my_interproscan/interproscan-5.61-93.0/interproscan.sh -cpu 40 -t n -i /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid_Ro4x_clean/chunked/Transcriptome_hybrid_clean.0.fasta  \
+                 -b /home/kuprinak/RNAseq/transcriptome/SPAdes/Annotation/Clean_annotation/
 
 #  Output files were merged:
 cat *.tsv > transcripts_annotation.tsv
