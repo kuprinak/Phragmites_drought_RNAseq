@@ -168,11 +168,11 @@ busco -i /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid_Ro4x_clean/T
 
 | n     |                                     |  %    |
 | :---: | ----------------------------------- | :---: |
-| 4497	|Complete BUSCOs                      | 91.9 |
-| 684	|Complete and single-copy BUSCOs      | 14.0 |
-| 3813	|Complete and duplicated BUSCOs       | 77.9 |
-| 62	|Fragmented BUSCOs                    | 1.3  |
-| 337	|Missing BUSCOs                       | 6.8  |
+| 4443	|Complete BUSCOs                      | 90.7 |
+| 808	|Complete and single-copy BUSCOs      | 16.5 |
+| 3635	|Complete and duplicated BUSCOs       | 74.2 |
+| 82	|Fragmented BUSCOs                    | 1.7  |
+| 371	|Missing BUSCOs                       | 7.6  |
 | 4896	|Total BUSCO groups searched          | 100.0 |
 
 Dependency: hmmsearch v3.1
