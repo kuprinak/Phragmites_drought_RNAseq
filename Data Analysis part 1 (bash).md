@@ -1,3 +1,5 @@
+openjdk version "23.0.1" 2024-10-15
+
 ## 1. Remove rRNA in SortMeRNA v4.3.4 
 
 ### Indexing of the reference database (rRNA_databases_v4.3.4)
