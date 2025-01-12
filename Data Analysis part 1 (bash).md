@@ -70,7 +70,7 @@ echo "Processing sample: $SAMPLE"
 FORWARD_FASTQ="$FASTQ_DIR/${SAMPLE}_forward_paired.fq.gz"
 REVERSE_FASTQ="$FASTQ_DIR/${SAMPLE}_reverse_paired.fq.gz"
 
-# Step 1: Extract reads for filtering:
+# Step 1: Extract reads of taxa (from "taxid" list) for filtering:
 if [[ -f "$FORWARD_FASTQ" && -f "$REVERSE_FASTQ" ]]; then
     echo "Filtering paired-end reads for $SAMPLE..."
     python3 /home/saenkos/kraken2/KrakenTools/extract_kraken_reads.py \
@@ -112,21 +112,21 @@ multiqc /home/kuprinak/RNAseq/FastQC/sortmerna_trimmomatic_clean --interactive
 
 ## 5. Transcriptome _De novo_ assembly using Illumina short reads (eight control samples) and Nanopore long reads (one sample) in rnaSPAdes-3.15.4
 ```{bash}
-spades.py --pe1-1 /home/kuprinak/RNAseq/fastq/c_Hu4x_1.fastq.gz \
-          --pe1-2 /home/kuprinak/RNAseq/fastq/c_Hu4x_2.fastq.gz \
-	        --pe2-1 /home/kuprinak/RNAseq/fastq/c_Hu8x_1.fastq.gz \
-          --pe2-2 /home/kuprinak/RNAseq/fastq/c_Hu8x_2.fastq.gz \
-	        --pe3-1 /home/kuprinak/RNAseq/fastq/c_Ro4x_1.fastq.gz \
-          --pe3-2 /home/kuprinak/RNAseq/fastq/c_Ro4x_2.fastq.gz \
-	        --pe4-1 /home/kuprinak/RNAseq/fastq/c_Ro8x_1.fastq.gz \
-          --pe4-2 /home/kuprinak/RNAseq/fastq/c_Ro8x_2.fastq.gz \
-	        --pe5-1 /home/kuprinak/RNAseq/fastq/c_Ru4x_1.fastq.gz \
-          --pe5-2 /home/kuprinak/RNAseq/fastq/c_Ru4x_2.fastq.gz \
-	        --pe6-1 /home/kuprinak/RNAseq/fastq/c_Ru8x_1.fastq.gz \
-          --pe6-2 /home/kuprinak/RNAseq/fastq/c_Ru8x_2.fastq.gz \
-          --nanopore /home/kuprinak/RNAseq/nanopore/fastq_Ro4x_nanopore.fq.gz\
-          -o /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome\
-          --rna -t 2 --cov-cutoff off
+spades.py --pe1-1 /home/kuprinak/RNAseq/fastq-kraken/c_Hu4x_forward_clean.fq \
+          --pe1-2 /home/kuprinak/RNAseq/fastq-kraken/c_Hu4x_reverse_clean.fq\
+	  --pe2-1 /home/kuprinak/RNAseq/fastq-kraken/c_Hu8x_forward_clean.fq \
+          --pe2-2 /home/kuprinak/RNAseq/fastq-kraken/c_Hu8x_reverse_clean.fq \
+	  --pe3-1 /home/kuprinak/RNAseq/fastq-kraken/c_Ro4x_forward_clean.fq \
+          --pe3-2 /home/kuprinak/RNAseq/fastq-kraken/c_Ro4x_reverse_clean.fq \
+	  --pe4-1 /home/kuprinak/RNAseq/fastq-kraken/c_Ro8x_forward_clean.fq \
+          --pe4-2 /home/kuprinak/RNAseq/fastq-kraken/c_Ro8x_reverse_clean.fq \
+	  --pe5-1 /home/kuprinak/RNAseq/fastq-kraken/c_Ru4x_forward_clean.fq \
+          --pe5-2 /home/kuprinak/RNAseq/fastq-kraken/c_Ru4x_reverse_clean.fq \
+	  --pe6-1 /home/kuprinak/RNAseq/fastq-kraken/c_Ru8x_forward_clean.fq \
+          --pe6-2 /home/kuprinak/RNAseq/fastq-kraken/c_Ru8x_reverse_clean.fq \
+          --nanopore /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid2_all_c_U2T_filtered/Ro4x_nanopore.U2T_clean.fq \
+          -o /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid_Ro4x_clean/ \
+        --rna -t 2 --cov-cutoff off      
 #no more than 2 threads!      
 ```
 
@@ -139,7 +139,7 @@ pyfasta info for transcriptome:
 ```{bash}
 python rnaQUAST.py -t 96 \
 -o /home/kuprinak/RNAseq/transcriptome/SPAdes/rnaQUAST/ \
---transcripts /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fasta 
+--transcripts /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid_Ro4x_clean/Transcriptome_hybrid_clean.fasta
 ```
 Output: 
 
@@ -159,7 +159,7 @@ Transcript N50                                         2386
 
 ## 7. Assembly quality in BUSCO v5.4.4 
 ```{bash}
-busco -i /home/kuprinak/RNAseq/transcriptome/SPAdes/transcriptome/transcripts.fasta  \
+busco -i /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid_Ro4x_clean/Transcriptome_hybrid_clean.fasta \
 		-o BUSCO \
 		-m tran \
 		-l poales_odb10 \
