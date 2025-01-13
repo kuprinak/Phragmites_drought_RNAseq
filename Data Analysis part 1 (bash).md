@@ -149,7 +149,8 @@ python rnaQUAST.py -t 96 \
 Output: 
 METRICS/TRANSCRIPTS                                    Transcriptome_hybrid_clean  
 
- == BASIC TRANSCRIPTS METRICS (calculated without reference genome and gene database) == 
+== BASIC TRANSCRIPTS METRICS (calculated without reference genome and gene database) == 
+ 
 Transcripts                                            199141                      
 Transcripts > 500 bp                                   121232                      
 Transcripts > 1000 bp                                  92608                       
@@ -157,6 +158,10 @@ Average length of assembled transcripts                1311.655
 Longest transcript                                     14692                       
 Total length                                           261204350                   
 Transcript N50                                         2263  
+
+== GeneMarkS-T METRICS == 
+ 
+Predicted genes                                        90484
 
 ## 7. Assembly quality in BUSCO v5.4.4 
 ```{bash}
