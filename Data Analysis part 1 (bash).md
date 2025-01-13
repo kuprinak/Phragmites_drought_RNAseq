@@ -106,12 +106,13 @@ fi
 
 
 
-## 4. Read quality assessment in FastQC v0.12.0  and MultiQC v1.14 
+## 4. Read quality assessment in FastQC v0.12.0, MultiQC v1.14 (for Illumina reads), and NanoPlot NanoPlot v1.43.0 (for nanopore reads)
 
 ```{bash}
 fastqc -t 96 /home/kuprinak/RNAseq/fastq-kraken/*_clean.fq -o /home/kuprinak/RNAseq/FastQC/sortmerna_trimmomatic_clean/
+multiqc /home/kuprinak/RNAseq/FastQC/sortmerna_trimmomatic_clean --interactive
 
-multiqc /home/kuprinak/RNAseq/FastQC/sortmerna_trimmomatic_clean --interactive 
+NanoPlot -t 2 --fastq /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid2_all_c_U2T_filtered/Ro4x_nanopore.U2T_clean.fq --plots dot
 ```
 
 ## 5. Transcriptome _De novo_ assembly using Illumina short reads (eight control samples) and Nanopore long reads (one sample) in rnaSPAdes-3.15.4
