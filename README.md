@@ -18,13 +18,14 @@
 ```mermaid
 flowchart TB
     A@{shape: procs, label: "Illumina raw reads"} --> B([SortMeRNA]);
-AA@{shape: procs, label: "Nanopore raw reads"} --> G([rnaSPAdes]);
-K2 -->T@{shape: cyl, label: "_De novo_ transcriptome assembly"};
+AA@{shape: procs, label: "Nanopore raw reads"} --> K([rnaSPAdes]);
     B --> C([Trimmomatic]);
     C --> K([Kraken2 + KrakenTools]);
-    K --> F@{shape: procs, label: "Clean reads"};
-    A --> G([rnaSPAdes]);
-    G --> K2([Kraken2 + KrakenTools]);
+    K --> F@{shape: procs, label: "Illumina clean reads"};
+    K --> F2@{shape: procs, label: "Nanopore clean reads"};
+    F2 --> G([rnaSPAdes]);
+    F --> G([rnaSPAdes]);
+    G -->T@{shape: cyl, label: "_De novo_ transcriptome assembly"};
     T --> BU([BUSCO]);
     T --> Q([rnaQUAST]);
     T --> I([InterProScan]);
@@ -38,6 +39,5 @@ K2 -->T@{shape: cyl, label: "_De novo_ transcriptome assembly"};
     q --> R([DESeq2]);
     R --> DEG@{shape: procs, label: "Differentially expressed genes"};
     DEG --> cl([clusterProfiler]);
-    K --> E([FastQC]);
-    E --> m([MultiQC]);
+    K --> E([FastQC + MultiQC])
 ```
