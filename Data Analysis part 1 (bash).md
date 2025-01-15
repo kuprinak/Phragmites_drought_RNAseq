@@ -151,17 +151,18 @@ METRICS/TRANSCRIPTS                                    Transcriptome_hybrid_clea
 
 == BASIC TRANSCRIPTS METRICS (calculated without reference genome and gene database) == 
  
-Transcripts                                            199141                      
-Transcripts > 500 bp                                   121232                      
-Transcripts > 1000 bp                                  92608                       
-Average length of assembled transcripts                1311.655                    
-Longest transcript                                     14692                       
-Total length                                           261204350                   
-Transcript N50                                         2263  
+Transcripts                                            191527                   
+Transcripts > 500 bp                                   120664                   
+Transcripts > 1000 bp                                  92553                    
+Average length of assembled transcripts                1351.013                 
+Longest transcript                                     14692                    
+Total length                                           258755454                
+
+Transcript N50                                         2279  
 
 == GeneMarkS-T METRICS == 
  
-Predicted genes                                        90484
+Predicted genes                                        88348
 
 ## 7. Assembly quality in BUSCO v5.4.4 
 ```{bash}
