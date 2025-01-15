@@ -144,7 +144,7 @@ pyfasta info for transcriptome:
 ```{bash}
 python rnaQUAST.py -t 96 \
 -o /home/kuprinak/RNAseq/transcriptome/SPAdes/rnaQUAST/ \
---transcripts /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid_Ro4x_clean/Transcriptome_hybrid_clean.fasta
+--transcripts /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid_Ro4x_clean/Transcriptome_final.fasta
 ```
 Output: 
 METRICS/TRANSCRIPTS                                    Transcriptome_hybrid_clean  
@@ -166,7 +166,7 @@ Predicted genes                                        88348
 
 ## 7. Assembly quality in BUSCO v5.4.4 
 ```{bash}
-busco -i /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid_Ro4x_clean/Transcriptome_hybrid_clean.fasta \
+busco -i /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid_Ro4x_clean/Transcriptome_final.fasta \
 		-o BUSCO \
 		-m tran \
 		-l poales_odb10 \
