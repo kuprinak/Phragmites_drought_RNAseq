@@ -179,16 +179,14 @@ busco -i /home/kuprinak/RNAseq/transcriptome/SPAdes/nanopore_hybrid_Ro4x_clean/T
 
 | n     |                                     |  %    |
 | :---: | ----------------------------------- | :---: |
-| 4443	|Complete BUSCOs                      | 90.7 |
+| 4442	|Complete BUSCOs                      | 90.7 |
 | 808	|Complete and single-copy BUSCOs      | 16.5 |
-| 3635	|Complete and duplicated BUSCOs       | 74.2 |
+| 3634	|Complete and duplicated BUSCOs       | 74.2 |
 | 82	|Fragmented BUSCOs                    | 1.7  |
-| 371	|Missing BUSCOs                       | 7.6  |
+| 372	|Missing BUSCOs                       | 7.6  |
 | 4896	|Total BUSCO groups searched          | 100.0 |
 
-Dependency: hmmsearch v3.1
-
-
+Dependencies: hmmsearch v3.1, metaeuk: 6.a5d39d9
 
 ## 8. Annotation of transcriptome in InterProScan
 ```{bash}
