@@ -1,6 +1,9 @@
 # _Phragmites_ RNAseq
 ## Transcriptomic analysis of _Phragmites australis_ gene expression under drought stress
 
+> [!TIP]
+> To view any HTML file, please, download it
+
 ### Used programs:
 
 * [SortMeRNA](https://academic.oup.com/bioinformatics/article/28/24/3211/246053?login=true) v4.3.4 - filtering out rRNA
